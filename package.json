@@ -8,14 +8,16 @@
     "serve": "vite preview",
     "dev:server": "node --nolazy -r ts-node/register src/server.ts",
     "build:server": "rimraf build && tsc",
-    "dev": "concurrently npm:dev:client npm:dev:server",
+    "dev": "concurrently -n vue,server npm:dev:client npm:dev:server",
     "compile": "npm run build:client && npm run build:server"
   },
   "dependencies": {
-    "koa": "^2.13.1"
+    "koa": "^2.13.1",
+    "koa-static": "^5.0.0"
   },
   "devDependencies": {
     "@types/koa": "^2.13.1",
+    "@types/koa-static": "^4.0.1",
     "@types/node": "^14.14.37",
     "@vitejs/plugin-vue": "^1.1.5",
     "@vue/compiler-sfc": "^3.0.7",
