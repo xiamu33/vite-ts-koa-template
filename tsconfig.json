@@ -5,7 +5,6 @@
     "lib": ["esnext"],
     "sourceMap": true,
     "outDir": "./build",
-    "rootDir": "./src",
     "removeComments": true,
     "strict": true,
     "strictPropertyInitialization": false,
