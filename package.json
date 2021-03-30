@@ -11,6 +11,13 @@
     "dev": "concurrently -n vue,server npm:dev:client npm:dev:server",
     "compile": "npm run build:client && npm run build:server"
   },
+  "lint-staged": {
+    "*.{js,jsx,vue,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
   "dependencies": {
     "koa": "^2.13.1",
     "koa-static": "^5.0.0"
@@ -29,6 +36,8 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^7.8.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
     "ts-node": "^9.1.1",
