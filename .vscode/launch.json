@@ -5,18 +5,39 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "node",
-      "request": "launch",
       "name": "server",
-      "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
-      "args": ["${workspaceFolder}/server/src/server.ts"],
+      "type": "pwa-node",
+      "request": "launch",
+      "runtimeArgs": [
+        "--nolazy",
+        "-r",
+        "ts-node/register"
+      ],
+      "args": [
+        "${workspaceFolder}/src/server.ts"
+      ],
       "skipFiles": [
+        "${workspaceFolder}/node_modules/**/*.js",
         "<node_internals>/**"
       ],
-      "cwd": "${workspaceFolder}/server",
+      "cwd": "${workspaceFolder}",
       "outFiles": [
         "${workspaceFolder}/**/*.js"
-      ]
-    }
+      ],
+    },
+    {
+      "name": "server-attach",
+      "type": "pwa-node",
+      "request": "attach",
+      "port": 24680,
+      "localRoot": "${workspaceFolder}/src",
+      "sourceMaps": true,
+      "restart": true,
+      "timeout": 100000,
+      "skipFiles": [
+        "${workspaceFolder}/node_modules/**/*.js",
+        "<node_internals>/**"
+      ],
+    },
   ]
 }
