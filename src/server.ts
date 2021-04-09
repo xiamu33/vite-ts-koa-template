@@ -1,15 +1,19 @@
-import Koa from 'koa'
+import dotenv from 'dotenv';
+import Koa from 'koa';
 import KoaStatic from 'koa-static';
-import path from 'path'
+import path from 'path';
+
+dotenv.config();
 
 const app = new Koa();
 
-app.use(KoaStatic(path.join(__dirname, '../dist')))
+app.use(KoaStatic(path.join(__dirname, '../dist')));
 
 app.use(ctx => {
-  ctx.body = 'hello world'
-})
+  ctx.body = 'hello world';
+});
 
-app.listen(3003, () => {
-  console.log('server listen on port: 3003')
-})
+const PORT = Number(process.env.PORT) || 3000;
+app.listen(PORT, () => {
+  console.log(`server listen on port: ${PORT}`);
+});

@@ -5,6 +5,10 @@ import vue from '@vitejs/plugin-vue';
 export default defineConfig({
   root: 'view',
   publicDir: 'public',
+  server: {
+    port: 3001,
+    strictPort: true,
+  },
   build: {
     outDir: '../dist',
     emptyOutDir: true,
