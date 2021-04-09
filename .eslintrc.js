@@ -5,6 +5,7 @@ module.exports = {
     node: true,
     es6: true,
   },
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
     ecmaVersion: 2020,
@@ -32,6 +33,10 @@ module.exports = {
       rules: {
         'no-console': [1, { allow: ['warn', 'error'] }],
       },
+    },
+    {
+      files: ['./view/**/*.html'],
+      plugins: ['eslint-plugin-html'],
     },
   ],
 };
