@@ -1,8 +1,9 @@
-import { createKoaServer } from 'routing-controllers';
-import { Service } from 'typedi';
 import Koa from 'koa';
 import KoaStatic from 'koa-static';
 import path from 'path';
+import { createKoaServer } from 'routing-controllers';
+import { LoggerService } from '../service/LoggerService';
+import { Service } from 'typedi';
 
 @Service()
 export class HttpServer {
@@ -10,9 +11,9 @@ export class HttpServer {
   private port: number;
   private isDev = !!~(process.env.NODE_ENV || '').indexOf('dev');
 
-  constructor() {
+  constructor(private loggerService: LoggerService) {
     this.init();
-    console.log('http server start');
+    this.loggerService.debugLog('http server start');
   }
 
   private init() {
@@ -33,7 +34,7 @@ export class HttpServer {
     appWeb.use(KoaStatic(path.join(__dirname, '../../dist')));
 
     appWeb.listen(this.port, this.host, () => {
-      console.log(`> HTTP server listening on: http://${this.host}:${this.port}`);
+      this.loggerService.traceLog(`> HTTP server listening on: http://${this.host}:${this.port}`);
     });
   }
 }
