@@ -4,13 +4,13 @@
   "main": "build/server.js",
   "scripts": {
     "dev:client": "vite",
-    "build:client": "vue-tsc --noEmit -p view && vite build",
     "serve": "vite preview",
     "dev:server": "node --nolazy -r ts-node/register src/server.ts",
     "debug:server": "ts-node-dev --inspect=24680 --respawn --poll --interval=5000 --quiet --clear src/server.ts",
-    "build:server": "rimraf build && tsc",
     "dev": "concurrently -n vue,server npm:dev:client npm:dev:server",
     "debug": "concurrently -n vue,server npm:dev:client npm:debug:server",
+    "build:client": "vue-tsc --noEmit -p view && vite build",
+    "build:server": "rimraf build && tsc",
     "compile": "npm run build:client && npm run build:server"
   },
   "lint-staged": {
@@ -58,5 +58,12 @@
     "vite": "^2.1.3",
     "vue": "^3.0.7",
     "vue-tsc": "^0.0.8"
-  }
+  },
+  "keywords": [
+    "vue3",
+    "vite2",
+    "koa2",
+    "mongoose",
+    "typegoose"
+  ]
 }
