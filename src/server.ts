@@ -8,5 +8,9 @@ import { MongoDBConn } from './common/MongoDBConn';
 dotenv.config();
 log4js.configure(require('./config/log4js.config').default);
 
-Container.get(MongoDBConn).connectDB();
-Container.get(HttpServer).startServer();
+async function bootstrap() {
+  await Container.get(MongoDBConn).connectDB();
+  Container.get(HttpServer).startServer();
+}
+
+bootstrap();
