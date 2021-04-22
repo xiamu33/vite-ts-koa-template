@@ -1,1 +1,2 @@
 import './elementPlus';
+import '../router';
