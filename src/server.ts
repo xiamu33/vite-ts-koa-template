@@ -1,16 +1,17 @@
 import 'reflect-metadata';
-import Container from 'typedi';
 import dotenv from 'dotenv';
 import log4js from 'log4js';
-import { HttpServer } from './servers/HttpServer';
+import Container from 'typedi';
 import { MongoDBConn } from './common/MongoDBConn';
+import { log4jsConfig } from './config/log4js.config';
+import { HttpServer } from './servers/HttpServer';
 
 dotenv.config();
-log4js.configure(require('./config/log4js.config').default);
+log4js.configure(log4jsConfig);
 
 async function bootstrap() {
   await Container.get(MongoDBConn).connectDB();
   Container.get(HttpServer).startServer();
 }
 
-bootstrap();
+void bootstrap();

@@ -1,5 +1,5 @@
-import { BaseModel } from './base.model';
 import { modelOptions, Prop } from '@typegoose/typegoose';
+import { BaseModel } from './base.model';
 
 @modelOptions({ schemaOptions: { collection: 'project' } })
 export class ProjectModel extends BaseModel {

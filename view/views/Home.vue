@@ -80,6 +80,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
+  name: 'HomePage',
   setup() {
     const item = {
       date: '2016-05-02',

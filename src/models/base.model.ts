@@ -1,5 +1,5 @@
-import { AnyParamConstructor } from '@typegoose/typegoose/lib/types';
 import { getModelForClass, Prop } from '@typegoose/typegoose';
+import { AnyParamConstructor } from '@typegoose/typegoose/lib/types';
 
 export class BaseModel {
   @Prop()
@@ -16,7 +16,7 @@ export class BaseModel {
   public updated_at?: Date;
 }
 
-export function getModel<U extends AnyParamConstructor<any>>(cls: U) {
+export function getModel<U extends AnyParamConstructor<unknown>>(cls: U) {
   return getModelForClass(cls, {
     schemaOptions: {
       timestamps: {

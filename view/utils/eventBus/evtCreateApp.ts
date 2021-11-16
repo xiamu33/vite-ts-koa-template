@@ -1,5 +1,5 @@
 import { App } from '@vue/runtime-core';
-import { bus, VEventType } from '.';
+import { bus, VEventType } from './base';
 
 export function emitCreateApp(app: App<Element>) {
   bus.emit(VEventType.CreateApp, app);

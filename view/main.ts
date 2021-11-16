@@ -1,5 +1,5 @@
-import App from './App.vue';
 import { createApp } from 'vue';
+import App from './App.vue';
 import { emitCreateApp } from './utils';
 import './styles/index.scss';
 import './plugins';

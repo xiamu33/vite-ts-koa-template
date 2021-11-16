@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument, no-console */
 import { getLogger, Logger } from 'log4js';
 import { Service } from 'typedi';
 
@@ -19,33 +20,33 @@ export class LoggerService {
   private fatalLogger: Logger = getLogger(LoggerName.Fatal);
   private errorLogger: Logger = getLogger(LoggerName.Error);
 
-  traceLog(msg: any, ...args: any[]): void {
+  traceLog(msg: string, ...args: any[]): void {
     this.traceLogger.trace(msg, ...args);
     if (process.env.DEBUG) console.debug(`[ ${new Date().toLocaleString()} ]`, msg, ...args);
   }
 
-  debugLog(msg: any, ...args: any[]): void {
+  debugLog(msg: string, ...args: any[]): void {
     this.debugLogger.debug(msg, ...args);
     if (process.env.DEBUG) console.debug(`[ ${new Date().toLocaleString()} ]`, msg, ...args);
   }
 
-  infoLog(msg: any, ...args: any[]): void {
+  infoLog(msg: string, ...args: any[]): void {
     this.infoLogger.info(msg, ...args);
     if (process.env.DEBUG) console.info(`[ ${new Date().toLocaleString()} ]`, msg, ...args);
   }
 
-  warnLog(msg: any, ...args: any[]): void {
+  warnLog(msg: string, ...args: any[]): void {
     this.warnLogger.warn(msg, ...args);
     this.debugLogger.debug(msg, ...args);
     if (process.env.DEBUG) console.warn(`[ ${new Date().toLocaleString()} ] SERVER WANING`, msg, ...args);
   }
 
-  fatalLog(msg: any, ...args: any[]): void {
+  fatalLog(msg: string, ...args: any[]): void {
     this.fatalLogger.fatal(msg, ...args);
     if (process.env.DEBUG) console.log(`[ ${new Date().toLocaleString()} ] SERVER WANING`, msg, ...args);
   }
 
-  errorLog(msg: any, ...args: any[]): void {
+  errorLog(msg: string, ...args: any[]): void {
     this.errorLogger.error(msg, ...args);
     this.debugLogger.debug(msg, ...args);
     if (process.env.DEBUG) console.error(`[ ${new Date().toLocaleString()} ] SERVER ERROR`, msg, ...args);

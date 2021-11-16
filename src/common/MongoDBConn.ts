@@ -1,6 +1,6 @@
 import { connect, connection, ConnectionOptions } from 'mongoose';
-import { LoggerService } from '../service/LoggerService';
 import { Service } from 'typedi';
+import { LoggerService } from '../service/LoggerService';
 
 @Service()
 export class MongoDBConn {
@@ -28,15 +28,15 @@ export class MongoDBConn {
     if (process.env.MONGO_USER) connectOptions.user = process.env.MONGO_USER; // 用户名
     if (process.env.MONGO_PASSWORD) connectOptions.pass = process.env.MONGO_PASSWORD; // 密码
     await connect(uri, connectOptions);
-    connection.on('error', err => {
+    connection.on('error', (err: Error) => {
       this.loggerService.errorLog(`connect ${this.mongoDbName} db failed. error: [ ${err.message} ]`);
       throw err;
     });
     connection.on('disconnected', () => {
-      this.loggerService.warnLog(`[db disconnected] mongo disconnected at: ${new Date()}.`);
+      this.loggerService.warnLog(`[db disconnected] mongo disconnected at: ${new Date().toLocaleString()}.`);
     });
     connection.on('reconnected', () => {
-      this.loggerService.warnLog(`[db reconnected] mongo reconnected at: ${new Date()}.`);
+      this.loggerService.warnLog(`[db reconnected] mongo reconnected at: ${new Date().toLocaleString()}.`);
     });
     this.loggerService.traceLog(`> connect ${this.mongoDbName} db success on: ${uri}`);
     return connection;

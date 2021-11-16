@@ -1,9 +1,9 @@
+import path from 'path';
 import Koa from 'koa';
 import KoaStatic from 'koa-static';
-import path from 'path';
 import { createKoaServer } from 'routing-controllers';
-import { LoggerService } from '../service/LoggerService';
 import { Service } from 'typedi';
+import { LoggerService } from '../service/LoggerService';
 
 @Service()
 export class HttpServer {

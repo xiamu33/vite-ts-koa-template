@@ -1,6 +1,6 @@
-import Home from '../views/Home.vue';
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 import { onCreateApp } from '../utils';
+import Home from '../views/Home.vue';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -11,9 +11,9 @@ const routes: RouteRecordRaw[] = [
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes: routes,
+  routes,
 });
 
 onCreateApp(app => {
-  app?.use(router);
+  app!.use(router);
 });

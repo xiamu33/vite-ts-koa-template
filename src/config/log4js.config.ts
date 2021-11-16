@@ -1,6 +1,6 @@
 const logDir = process.env.LOG_DIR || '.';
 
-export default {
+export const log4jsConfig = {
   appenders: {
     trace: {
       type: 'dateFile',
