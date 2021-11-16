@@ -12,8 +12,8 @@
     "build:client": "vue-tsc --noEmit -p view && vite build",
     "build:server": "rimraf build && tsc",
     "compile": "npm run build:client && npm run build:server",
-    "lint": "eslint src/**/* view/**/*.ts",
-    "format": "eslint --fix src/**/* view/**/*.ts"
+    "lint": "eslint src/**/* view/**/*.{ts,vue}",
+    "format": "eslint --fix src/**/* view/**/*.{ts,vue}"
   },
   "lint-staged": {
     "*.{js,jsx,vue,ts,tsx}": [
