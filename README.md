@@ -16,7 +16,8 @@
 ## prepare
 
 ```shell
-npm install
+$ npm install
+$ npx husky install
 ```
 
 ## run both server & client
