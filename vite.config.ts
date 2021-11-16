@@ -14,4 +14,11 @@ export default defineConfig({
     emptyOutDir: true,
   },
   plugins: [vue()],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        charset: false,
+      },
+    },
+  },
 });
