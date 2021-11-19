@@ -1,6 +1,7 @@
 import { connect, connection, ConnectionOptions } from 'mongoose';
 import { Service } from 'typedi';
-import { LoggerService } from '../service/LoggerService';
+import { LoggerService } from '../service';
+import { loadEnv } from '../toolkit';
 
 @Service()
 export class MongoDBConn {
@@ -12,10 +13,9 @@ export class MongoDBConn {
   }
 
   private initDb() {
-    if (!process.env.MONGO_DB_SERVER) throw new Error('must config MONGO_DB_SERVER env');
-    if (!process.env.MONGO_DB_NAME) throw new Error('must config MONGO_DB_NAME env');
-    this.mongoDbServer = process.env.MONGO_DB_SERVER;
-    this.mongoDbName = process.env.MONGO_DB_NAME;
+    loadEnv(['MONGO_DB_SERVER', 'MONGO_DB_NAME']);
+    this.mongoDbServer = process.env.MONGO_DB_SERVER!;
+    this.mongoDbName = process.env.MONGO_DB_NAME!;
   }
 
   public async connectDB() {

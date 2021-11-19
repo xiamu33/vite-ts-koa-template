@@ -3,7 +3,8 @@ import Koa from 'koa';
 import KoaStatic from 'koa-static';
 import { createKoaServer } from 'routing-controllers';
 import { Service } from 'typedi';
-import { LoggerService } from '../service/LoggerService';
+import { LoggerService } from '../service';
+import { loadEnv } from '../toolkit';
 
 @Service()
 export class HttpServer {
@@ -17,10 +18,9 @@ export class HttpServer {
   }
 
   private init() {
-    if (!process.env.HTTP_HOST) throw new Error('must config HTTP_HOST env');
-    if (!process.env.HTTP_PORT) throw new Error('must config HTTP_PORT env');
-    this.host = process.env.HTTP_HOST;
-    this.port = parseInt(process.env.HTTP_PORT);
+    loadEnv(['HTTP_HOST', 'HTTP_PORT']);
+    this.host = process.env.HTTP_HOST!;
+    this.port = parseInt(process.env.HTTP_PORT!);
   }
 
   public startServer() {

@@ -42,6 +42,7 @@ const commonRules = {
   '@typescript-eslint/ban-ts-comment': 0,
   '@typescript-eslint/no-unsafe-call': 1,
   '@typescript-eslint/restrict-template-expressions': [1, { allowBoolean: true }],
+  '@typescript-eslint/no-unused-vars': 0,
   'class-methods-use-this': 0,
   'comma-dangle': [1, 'always-multiline'],
   'eol-last': 1,
