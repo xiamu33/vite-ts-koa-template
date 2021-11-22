@@ -7,11 +7,12 @@
 
 ### environment needed
 
-- TypeScript `^3.9`
-- NodeJS `^10.15.0`
-- Mongoose `5.10.18`
-- @types/mongoose `5.10.x`
-- @typegoose/typegoose `^7.5.0`
+- TypeScript `^4.4`
+- NodeJS `^12.22.0`
+- Mongoose `~6.0.11`
+- @typegoose/typegoose `^9.2.0`
+- `tsconfig.json` 中启用 `experimentalDecorators` 和 `emitDecoratorMetadata`
+- `tsconfig.json` 中 `target` 选项需要 `es6` 或以上
 
 ### prepare
 
@@ -22,6 +23,8 @@ $ npm install -g commitizen # 可使用 git cz 提交代码
 ```
 
 从 `.env.example` 复制一份环境变量至 `.env` ，建议将 `DEBUG` 设置为 `true` 。
+
+安装 [`ESLint`](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) 、 [`Prettier - Code formatter`](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) 插件。
 
 ### run both server & client
 
