@@ -1,4 +1,4 @@
-import { connect, connection, ConnectionOptions } from 'mongoose';
+import { connect, connection, ConnectOptions } from 'mongoose';
 import { Service } from 'typedi';
 import { LoggerService } from '../service';
 import { loadEnv } from '../toolkit';
@@ -20,11 +20,7 @@ export class MongoDBConn {
 
   public async connectDB() {
     const uri = this.mongoDbServer + this.mongoDbName;
-    const connectOptions: ConnectionOptions = {
-      useCreateIndex: true,
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    };
+    const connectOptions: ConnectOptions = {};
     if (process.env.MONGO_USER) connectOptions.user = process.env.MONGO_USER; // 用户名
     if (process.env.MONGO_PASSWORD) connectOptions.pass = process.env.MONGO_PASSWORD; // 密码
     await connect(uri, connectOptions);
