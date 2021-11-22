@@ -11,6 +11,7 @@
     "debug": "concurrently -n vue,server npm:dev:client npm:debug:server",
     "build:client": "vue-tsc --noEmit -p view && vite build",
     "build:server": "rimraf build && tsc",
+    "generate": "node generator/generateIndex.js",
     "compile": "npm run build:client && npm run build:server",
     "lint": "eslint src/**/* view/**/*.{ts,vue}",
     "format": "eslint --fix src/**/* view/**/*.{ts,vue}"

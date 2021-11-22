@@ -3,7 +3,8 @@
   "include": [
     "src",
     ".eslintrc.js",
-    "*.config.*"
+    "*.config.*",
+    "generator",
   ],
   "exclude": ["node_modules"]
 }
